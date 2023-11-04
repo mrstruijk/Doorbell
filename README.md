@@ -9,23 +9,23 @@ This is our door bell:
 Inside:
 ![IMG_8219](https://github.com/mrstruijk/Doorbell/assets/35394193/90d67fbd-d729-4e3e-a23c-0664dba9ee16)
 
-My office is on the other side of our house, and I frequently don't hear the bell when I'm working. However, I like the bell as it is, so I didn't want to replace it with something like a [Ring doorbell](https://nl-nl.ring.com/pages/doorbells). 
+Our office is on the other side of our house, and I frequently don't hear the bell when I'm working from home. However, we really like the bell as it is, so we didn't want to replace it with something like a boring [Ring doorbell](https://nl-nl.ring.com/pages/doorbells). 
 
 So I needed something that detects motion at the bell-end, and is able to send this wirelessly to another device, which in turn can somehow let me know that things are happening. I settled on a Pi Pico W with a tilt-switch as motion detection as the sender, attached to the doorbell. A Pi Zero acts as the receiver, attached to a regular light in my office.
 
 # Hardware
 ## Sender
-- [Raspberry Pi Pico W](https://www.raspberrypi.com/products/raspberry-pi-pico/)
-- Some kind power supply (I used 4xAA [rechargeable batteries](https://stfn.pl/blog/06-pico-aa-batteries/)) 
-[SW-520D tilt switch](https://www.otronic.nl/nl/sw-520d-helling-tilt-sensor.html). Depending on the power supply you need some kind of battery case. 
-- Two jumper wires to attach the tilt-switch with. 
-- (Optional) An on-off switch [I like this type](https://www.amazon.nl/CESFONJER-mini-tuimelschakelaar-marinevoertuig-tuimelschakelaar-instrumententafel/dp/B07J4KB38W?pd_rd_w=9Hm25&content-id=amzn1.sym.e72a5e35-8016-4887-8196-dbb0ef37d504&pf_rd_p=e72a5e35-8016-4887-8196-dbb0ef37d504&pf_rd_r=P4G9P1S46DFGANS9FQDW&pd_rd_wg=JdrYL&pd_rd_r=aa7b88f0-2827-42a5-a1ba-15d1b3f6562c&pd_rd_i=B07J4KB38W&ref_=pd_bap_d_grid_rp_0_1_ec_i&th=1)
+- A [Raspberry Pi Pico W](https://www.raspberrypi.com/products/raspberry-pi-pico/)
+- Some kind power supply (I used 4xAA [rechargeable batteries](https://stfn.pl/blog/06-pico-aa-batteries/)). Depending on the power supply you need some kind of battery case. 
+- [SW-520D tilt switch](https://www.otronic.nl/nl/sw-520d-helling-tilt-sensor.html). 
+- Two jumper wires (about 4-5cm) to attach the tilt-switch with. 
+- (Optional) An on-off switch [(I like this type)](https://www.amazon.nl/CESFONJER-mini-tuimelschakelaar-marinevoertuig-tuimelschakelaar-instrumententafel/dp/B07J4KB38W?pd_rd_w=9Hm25&content-id=amzn1.sym.e72a5e35-8016-4887-8196-dbb0ef37d504&pf_rd_p=e72a5e35-8016-4887-8196-dbb0ef37d504&pf_rd_r=P4G9P1S46DFGANS9FQDW&pd_rd_wg=JdrYL&pd_rd_r=aa7b88f0-2827-42a5-a1ba-15d1b3f6562c&pd_rd_i=B07J4KB38W&ref_=pd_bap_d_grid_rp_0_1_ec_i&th=1)
 
 Attach the tilt-switch unto the end of the wires. In my case they needed to be a few centimeters long, to provide the tilt-switch with enough range of motion to trigger whenever the bell rings. Attach the wired-up tilt-switch to any of the regular pins and a ground pin. Make sure to set that same pin in the `motionsensor.py` on line 12. In the code provided it's attached to GP11 (physical pin 15). Make sure the tilt-switch points upwards, otherwise it won't work. 
 
 Attach the Pico to the battery unit with some tape or hot glue and popsicle sticks. Make sure that you're able to open the battery compartment to recharge your batteries.
 
-Wire the power supply to the VBUS and a ground pin. I wired the on-off switch on the ground wire in between the battery and the Pico: I only turn it on when I am expecting someone or a delivery.
+Wire the power supply to the VSYS and a ground pin. I wired the on-off switch on the ground wire in between the battery and the Pico: I only turn it on when I am expecting someone or a delivery.
 
 Front
 ![IMG_7982](https://github.com/mrstruijk/Doorbell/assets/35394193/7a229a8f-91a4-4229-aeb7-1f70250c410f)
