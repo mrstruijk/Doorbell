@@ -2,14 +2,16 @@
 
 Know when someone rings your mechanical door-bell, even when you're out of earshot. 
 
-This is my door bell:
+## Our case
+This is our door bell:
 ![IMG_8220](https://github.com/mrstruijk/Doorbell/assets/35394193/fbd38631-b4ee-42ac-9285-71abdd0ba7b0)
 
+Inside:
 ![IMG_8219](https://github.com/mrstruijk/Doorbell/assets/35394193/90d67fbd-d729-4e3e-a23c-0664dba9ee16)
 
-I like the bell as it is, so I didn't want to replace it with something like a [Ring doorbell](https://nl-nl.ring.com/pages/doorbells). 
+My office is on the other side of our house, and I frequently don't hear the bell when I'm working. However, I like the bell as it is, so I didn't want to replace it with something like a [Ring doorbell](https://nl-nl.ring.com/pages/doorbells). 
 
-So I needed something that detects motion at the bell-end, and is able to send this wirelessly to another device, which in turn can somehow let me know that things are happening. I settled on a Pi Pico W with a tilt-switch as motion detection as the sender, attached to the doorbell. A Pi Zero acts as the receiver, attached to a regular light in my office on the other side of the house. 
+So I needed something that detects motion at the bell-end, and is able to send this wirelessly to another device, which in turn can somehow let me know that things are happening. I settled on a Pi Pico W with a tilt-switch as motion detection as the sender, attached to the doorbell. A Pi Zero acts as the receiver, attached to a regular light in my office.
 
 # Hardware
 ## Sender
