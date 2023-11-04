@@ -79,26 +79,28 @@ Setup the Mosquitto broker. A good explanation on how to set this up on the Pi c
 
 ## Running as the mqttclient.py as a service on the Pi Zero
 
-On te receiver (e.g.Pi Zero), put the `mqttclient.py` in `/usr/bin/`. 
+On the receiver (e.g. the Pi Zero), copy the the `mqttclient.py` script to `/usr/bin/mqttclient.py`. 
 
 Copy the systemd file `mqttclient.service` to: `/etc/systemd/system/mqttclient.service`
 
-Reload, start, and enable
+Reload, start, and enable systemctl in general, and the `mqttclient.service` specifically:
 `sudo systemctl daemon-reload`
 `sudo systemctl enable mqttclient.service`
 `sudo systemctl start mqttclient.service`
 
-Your sender will probably crash if the broker is not yet turned on. Make sure the broker is operational before turning on the sender. 
+## Known issues
+
+Your sender will probably crash if the MQTT broker is not yet turned on. Make sure the broker is operational before turning on the sender. Turn off and on the sender if this got mixed up somehow. 
 
 # Usage
 
 Hit the on-switch on the sender. Once the sender detects bell-related-motion, it will establish a WiFi connection (slow LED blinks during connection, rapid blinks once connected). Then it will blink quickly again to indicate motion has been detected, and it will let the receiver know via the MQTT protocol. The WiFi connection stays active for a couple of minutes, then shuts down to conserve battery. 
 
-The receiver receives the signal from the MQTT, and will toggle the relays on and off a few times. If a light is attached, this will flicker. Otherwise, attach a light, and watch it flicker. 
+The receiver receives the signal from the MQTT, and will toggle the relays on and off a few times. If a light is attached, this will flicker. Otherwise, attach a light, and watch it flicker. If you prefer a fan, TV, or microwave, that is fine too. I'm not sure about the microwave, please let me know how that worked out. 
 
 # Project plans
 
-To me the project is at a good stage: I got it where I wanted it to be, and it is quite useful to me. 
+To me the project is at a good stage: I got the device to a stage where I wanted it to be, and it is quite useful to me. 
 
 However, of course there's a lot of room for improvement. Some future ideas might include:
 - Improving the battery life of the sender from 50-60 hours to weeks or months
@@ -108,5 +110,6 @@ However, of course there's a lot of room for improvement. Some future ideas migh
 
 Any ideas and improvements are welcome!
 
+Wherever applicable I noted in the scripts where I got the original code from that I based my work on. Thanks a million to the giants before me!
+
 You are free to use and modify this project to your heart's content. 
-Wherever applicable I noted in the scripts where I got the original code from.
