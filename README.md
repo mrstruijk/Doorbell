@@ -19,15 +19,18 @@ So I needed something that detects motion at the bell-end, and is able to send t
 - Two jumper wires to attach the tilt-switch with. 
 - (Optional) An on-off switch [I like this type](https://www.amazon.nl/CESFONJER-mini-tuimelschakelaar-marinevoertuig-tuimelschakelaar-instrumententafel/dp/B07J4KB38W?pd_rd_w=9Hm25&content-id=amzn1.sym.e72a5e35-8016-4887-8196-dbb0ef37d504&pf_rd_p=e72a5e35-8016-4887-8196-dbb0ef37d504&pf_rd_r=P4G9P1S46DFGANS9FQDW&pd_rd_wg=JdrYL&pd_rd_r=aa7b88f0-2827-42a5-a1ba-15d1b3f6562c&pd_rd_i=B07J4KB38W&ref_=pd_bap_d_grid_rp_0_1_ec_i&th=1)
 
-![IMG_7982](https://github.com/mrstruijk/Doorbell/assets/35394193/7a229a8f-91a4-4229-aeb7-1f70250c410f)
-
-![IMG_7984](https://github.com/mrstruijk/Doorbell/assets/35394193/bcdd8161-21b2-4ca9-b85e-eec670bba6f9)
-
-![IMG_7986](https://github.com/mrstruijk/Doorbell/assets/35394193/bde078c4-5fe9-492a-be56-6568938d0ba7)
-
 Attach the tilt-switch unto the end of the wires. In my case they needed to be a few centimeters long, to provide the tilt-switch with enough range of motion to trigger whenever the bell rings. Attach the wired-up tilt-switch to any of the regular pins and a ground pin. Make sure to set that same pin in the `motionsensor.py` on line 12. In the code provided it's attached to GP11 (physical pin 15). Make sure the tilt-switch points upwards, otherwise it won't work. 
 
 Wire the power supply to the VBUS and a ground pin. I wired the on-off switch on the ground wire in between the battery and the Pico: I only turn it on when I am expecting someone or a delivery.
+
+Front
+![IMG_7982](https://github.com/mrstruijk/Doorbell/assets/35394193/7a229a8f-91a4-4229-aeb7-1f70250c410f)
+
+Back
+![IMG_7984](https://github.com/mrstruijk/Doorbell/assets/35394193/bcdd8161-21b2-4ca9-b85e-eec670bba6f9)
+
+Side
+![IMG_7986](https://github.com/mrstruijk/Doorbell/assets/35394193/bde078c4-5fe9-492a-be56-6568938d0ba7)
 
 Attach the sender to any moving part of the bell. Gaffer-tape might do just fine:
 
