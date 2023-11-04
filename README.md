@@ -6,7 +6,6 @@ I like the bell as it is, so I didn't want to replace it with something like a [
 
 So I needed something that detects motion at the bell-end, and is able to send this wirelessly to another device, which in turn can somehow let me know things are happening. I settled on a Pi Pico W with a tilt-switch as motion detection as the sender, attached to the doorbell, A Pi Zero acts as the receiver, attached to a regular light in my office on the other side of the house. 
 
-----
 # Hardware
 ## Sender
 - [Raspberry Pi Pico W](https://www.raspberrypi.com/products/raspberry-pi-pico/)
@@ -33,7 +32,6 @@ Attach the power supply to the receiver.
 
 Attach a light or something useful to you to the female power socket of the receiver. It will toggle off-on a few times in response to the MQTT signal. 
 
-----
 # Battery life
 
 Through testing I found that I could get the best battery life of the sender using a setup with 4 rechargeable AA batteries. This provides between 50 and 60 hours of battery life.
@@ -42,7 +40,6 @@ The Wifi only connects once motion is detected, and then only stays on for a cou
 
 This is also why I added the external on-off switch to the sender. I want to be able to turn it off when not needed. The downside is that now I have to remember how many cummulative hours it has been on since last charge.
 
-----
 # Todo
 
 In the wifi_connect.py you need to fill out your WiFi SSID and password.
@@ -62,8 +59,6 @@ Reload, start, and enable
 
 Your sender will probably crash if the broker is not yet on. Make sure the broker is operational before turning on the sender. 
 
-
-------
 # Usage
 
 Attach the sender to any moving part of your door-bell. Duct-tape might do just fine. 
@@ -72,8 +67,6 @@ Hit the on-switch on the sender. Once the sender detects bell-related-motion, it
 
 The receiver receives the signal from the MQTT, and will toggle the relays on and off a few times. If a light is attached, this will flicker. Otherwise, attach a light, and watch it flicker. 
 
-
-----
 # Project plans
 
 To me the project is at a good stage: I got it where I wanted it to be, and it is quite useful to me. 
