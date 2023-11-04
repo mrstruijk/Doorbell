@@ -21,6 +21,8 @@ So I needed something that detects motion at the bell-end, and is able to send t
 
 Attach the tilt-switch unto the end of the wires. In my case they needed to be a few centimeters long, to provide the tilt-switch with enough range of motion to trigger whenever the bell rings. Attach the wired-up tilt-switch to any of the regular pins and a ground pin. Make sure to set that same pin in the `motionsensor.py` on line 12. In the code provided it's attached to GP11 (physical pin 15). Make sure the tilt-switch points upwards, otherwise it won't work. 
 
+Attach the Pico to the battery unit with some tape or hot glue and popsicle sticks. Make sure that you're able to open the battery compartment to recharge your batteries.
+
 Wire the power supply to the VBUS and a ground pin. I wired the on-off switch on the ground wire in between the battery and the Pico: I only turn it on when I am expecting someone or a delivery.
 
 Front
