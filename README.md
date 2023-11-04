@@ -86,9 +86,9 @@ On the receiver, copy the the `mqttclient.py` script to `/usr/bin/mqttclient.py`
 Copy the systemd file `mqttclient.service` to: `/etc/systemd/system/mqttclient.service`
 
 Reload, start, and enable systemctl and our new service:
-`sudo systemctl daemon-reload` 
-`sudo systemctl enable mqttclient.service` 
-`sudo systemctl start mqttclient.service`
+- `sudo systemctl daemon-reload` 
+- `sudo systemctl enable mqttclient.service` 
+- `sudo systemctl start mqttclient.service`
 
 ## Known issues
 
