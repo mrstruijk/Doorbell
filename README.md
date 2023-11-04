@@ -1,4 +1,4 @@
-![IMG_7962](https://github.com/mrstruijk/Doorbell/assets/35394193/8b4ff0ae-7f66-40bc-afa3-3007cf7350da)# README.md
+README.md
 
 Know when someone rings my mechanical door-bell, even when you're out of earshot. 
 
