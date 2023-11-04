@@ -1,6 +1,6 @@
-README.md
+# General
 
-Know when someone rings my mechanical door-bell, even when you're out of earshot. 
+Know when someone rings your mechanical door-bell, even when you're out of earshot. 
 
 This is my door bell:
 ![IMG_8220](https://github.com/mrstruijk/Doorbell/assets/35394193/fbd38631-b4ee-42ac-9285-71abdd0ba7b0)
@@ -35,13 +35,12 @@ Side
 ![IMG_7986](https://github.com/mrstruijk/Doorbell/assets/35394193/bde078c4-5fe9-492a-be56-6568938d0ba7)
 
 Attach the sender to any moving part of the bell. Gaffer-tape might do just fine:
-
 ![IMG_7993](https://github.com/mrstruijk/Doorbell/assets/35394193/46627565-c1fe-4499-852f-926f2ca3c44e)
 
 
 ## Receiver
 - Raspberry Pi, such as the [Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/), but any of the Pi's with Wifi could do in this case. The receiver code is written in Python, but can easily be modified to run in MicroPython. Just make sure that in that case, the MQTT broker is running from some other device. In this project, the broker runs on the same device as the receiver. 
-- A [relays breakout board](https://www.kiwi-electronics.com/nl/twee-kanaals-5v-relais-module-911?search=relais). Alternatively, follow along in the excellent Udemy course by [Dr. Peter Dalmaris](https://www.udemy.com/course/raspberrypibc/) on how to make your own relays circuit.
+- A [relays breakout board](https://www.kiwi-electronics.com/nl/twee-kanaals-5v-relais-module-911?search=relais). Alternatively, follow along in the excellent Udemy course by [Dr. Peter Dalmaris](https://www.udemy.com/course/raspberrypibc/) on how to make your own relays circuit:
 ![IMG_7602](https://github.com/mrstruijk/Doorbell/assets/35394193/649c0bb6-5f92-4862-be5c-755d308ee302)
 ![IMG_7616](https://github.com/mrstruijk/Doorbell/assets/35394193/59c31e34-a665-4772-865f-dcf6030ca71f)
 ![IMG_7619](https://github.com/mrstruijk/Doorbell/assets/35394193/86c3babc-949f-4cd9-8e78-33832d46508f)
@@ -49,7 +48,6 @@ Attach the sender to any moving part of the bell. Gaffer-tape might do just fine
 - Some power supply. I opted to use an old iPhone charger which from which the USB cable has it's 5V and ground wires connected to jumper wires. These connect to 5V and ground pins on the Zero. This was done because in my case ther was no space to connect the micro-USB connection.
 ![IMG_7626](https://github.com/mrstruijk/Doorbell/assets/35394193/dcf24066-aa2a-441f-a996-7c256e263579)
 - A case to hold everything in. I used a box from a wrist-watch.
-![IMG_7962](https://github.com/mrstruijk/Doorbell/assets/35394193/6c5b7bd3-29fb-4730-baaa-277165c6f17e)
 - Male and female power-sockets with some cabling.
 
 Attach the relays to pin 21 on the receiver (or at least to the same pin as is in the `mqttclient.py` script).
@@ -57,6 +55,10 @@ Attach the ground cable of the power sockets to the relays (I opted for the NC c
 
 Attach a light or something useful to you to the female power socket of the receiver. It will toggle off-on a few times in response to the MQTT signal. 
 
+I glued the relays (breakout) board to the lid of the box, with cabling long enough so I can just open the case if I need to:
+![IMG_7962](https://github.com/mrstruijk/Doorbell/assets/35394193/6c5b7bd3-29fb-4730-baaa-277165c6f17e)
+
+Finished receiver:
 ![IMG_7641](https://github.com/mrstruijk/Doorbell/assets/35394193/083f8500-0cb3-4056-ae8c-751341ec429f)
 
 
@@ -107,4 +109,3 @@ Any ideas and improvements are welcome!
 
 You are free to use and modify this project to your heart's content. 
 Wherever applicable I noted in the scripts where I got the original code from.
-
