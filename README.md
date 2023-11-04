@@ -4,9 +4,7 @@ This is my project in which I wanted to be able to know when someone rings my me
 
 I like the bell as it is, so I didn't want to replace it with something like a [Ring doorbell](https://nl-nl.ring.com/pages/doorbells).
 
-So I needed something that detects motion at the bell-end, and is able to send this wirelessly to another device, which in turn can somehow let me know things are happening. I settled on a Pi Pico W with a tilt-switch as motion detection as the sender, attached to the doorbell, A Pi Zero acts as the receiver, attached to a regular light in my office on the other side of the house. The latter can also be a Pi Pico W or similar. If so, change the `mqttclient.py` code where needed. 
-
-In my case the Pi Zero W (receiver) is also the one running the MQTT broker, and that the receiver and the Pi Pico W (sender) are on the same WiFi network. You could run the MQTT from another device, as long as this one is always on.  
+So I needed something that detects motion at the bell-end, and is able to send this wirelessly to another device, which in turn can somehow let me know things are happening. I settled on a Pi Pico W with a tilt-switch as motion detection as the sender, attached to the doorbell, A Pi Zero acts as the receiver, attached to a regular light in my office on the other side of the house. 
 
 ----
 # Hardware
@@ -49,13 +47,13 @@ This is also why I added the external on-off switch to the sender. I want to be 
 
 In the wifi_connect.py you need to fill out your WiFi SSID and password.
 
-Setup the Mosquitto broker. A good explanation on how to set this up on the Pi can be found [here](http://www.steves-internet-guide.com/install-mosquitto-linux/). In both the mqtthandler.py (on the sender) and the mqttclient.py (on the receiver) you need to fill out the IP-address of your MQTT broker.
+Setup the Mosquitto broker. A good explanation on how to set this up on the Pi can be found [here](http://www.steves-internet-guide.com/install-mosquitto-linux/). In both the `mqtthandler.py` (on the sender) and the `mqttclient.py` (on the receiver) you need to fill out the IP-address of your MQTT broker.
 
-## Running as the mqttclient.py as a service on the PiZero
+## Running as the mqttclient.py as a service on the Pi Zero
 
-On the receiver, put the `mqttclient.py` in `/usr/bin/`. 
+On te receiver (e.g.Pi Zero), put the `mqttclient.py` in `/usr/bin/`. 
 
-Copy the systemd file mqttclient.service to: `/etc/systemd/system/mqttclient.service`
+Copy the systemd file `mqttclient.service` to: `/etc/systemd/system/mqttclient.service`
 
 Reload, start, and enable
 `sudo systemctl daemon-reload`
@@ -68,23 +66,26 @@ Your sender will probably crash if the broker is not yet on. Make sure the broke
 ------
 # Usage
 
-Hit the switch on the sender. Once the sender detects motion, it will establish a WiFi connection (slow LED blinks during connection, rapid blinks once connected). Then it will blink quickly again to indicate motion has been detected, and it will let the receiver know via the MQTT protocol. The WiFi connection stays active for a couple of minutes, then shuts down to conserve battery. 
+Attach the sender to any moving part of your door-bell. Duct-tape might do just fine. 
 
-The receiver receives the signal from the MQTT, and will toggle the relays on and off a few times. If a light is attached this will flicker. 
+Hit the on-switch on the sender. Once the sender detects bell-related-motion, it will establish a WiFi connection (slow LED blinks during connection, rapid blinks once connected). Then it will blink quickly again to indicate motion has been detected, and it will let the receiver know via the MQTT protocol. The WiFi connection stays active for a couple of minutes, then shuts down to conserve battery. 
+
+The receiver receives the signal from the MQTT, and will toggle the relays on and off a few times. If a light is attached, this will flicker. Otherwise, attach a light, and watch it flicker. 
 
 
 ----
 # Project plans
 
-For now the project is at a good stage: I got it where I wanted it to be, and it is quite useful to me. 
+To me the project is at a good stage: I got it where I wanted it to be, and it is quite useful to me. 
 
-Some future ideas might include:
+However, of course there's a lot of room for improvement. Some future ideas might include:
 - Improving the battery life of the sender from 50-60 hours to weeks or months
-- Reducing the footprint of the sender
+- Reducing the physical footprint of the sender
 - Improving the response time of the sender/receiver connection from 5-10 sec to 1-2 sec
 - Swapping the receiver Pi Zero for another Pi Pico W
 
 Any ideas and improvements are welcome!
+
 You are free to use and modify this project to your heart's content. 
 Wherever applicable I noted in the scripts where I got the original code from.
 
